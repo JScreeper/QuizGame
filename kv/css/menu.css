@@ -1,0 +1,245 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* =========================
+   BODY / POZADINA
+========================= */
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb;
+}
+
+/* =========================
+   GLAVNI KONTEJNER
+========================= */
+#menu-container {
+  background: linear-gradient(180deg, #020617, #020617cc);
+  border-radius: 24px;
+  padding: 50px 60px;
+  width: 420px;
+  text-align: center;
+  box-shadow:
+    0 0 40px rgba(56, 189, 248, 0.15),
+    inset 0 0 20px rgba(56, 189, 248, 0.05);
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* =========================
+   NASLOV IGRE
+========================= */
+.game-title {
+  font-size: 3.2rem;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  color: #38bdf8;
+  text-shadow:
+    0 0 10px rgba(56,189,248,0.6),
+    0 0 30px rgba(56,189,248,0.3);
+}
+
+/* =========================
+   DUGMAD
+========================= */
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.menu-buttons button {
+  padding: 16px 20px;
+  font-size: 1.15rem;
+  border-radius: 14px;
+  border: 1px solid rgba(56,189,248,0.3);
+  background: linear-gradient(180deg, #020617, #020617aa);
+  color: #e5e7eb;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+/* GLOW LINIJA */
+.menu-buttons button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(56,189,248,0.4),
+    transparent
+  );
+  transition: 0.4s;
+}
+
+/* HOVER */
+.menu-buttons button:hover::before {
+  left: 100%;
+}
+
+.menu-buttons button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 0 20px rgba(56,189,248,0.35),
+    0 0 40px rgba(56,189,248,0.15);
+  color: #38bdf8;
+}
+
+/* CLICK */
+.menu-buttons button:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   POSEBNE BOJE
+========================= */
+#btn-exit understand {
+  border-color: rgba(239,68,68,0.4);
+}
+
+#btn-exit:hover {
+  color: #ef4444;
+  box-shadow:
+    0 0 20px rgba(239,68,68,0.4),
+    0 0 40px rgba(239,68,68,0.2);
+}
+
+/* =========================
+   ANIMACIJE
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#player-avatar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  cursor: pointer;
+  user-select: none;
+  font-family: "Segoe UI", sans-serif;
+}
+
+#avatar-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 0 20px rgba(56,189,248,0.3);
+  transition: all 0.2s ease;
+}
+
+avatar-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(56,189,248,0.5);
+}
+
+#avatar-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5)  ;
+}
+
+#avatar-menu button {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: #e5e7eb;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#avatar-menu button:hover {
+  background: #1e293b;
+}
+
+#stats-modal {
+  display: none; /* SKRIVENO na početku */
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+}
+ 
+
+#stats-content {
+  background: #0f172a;
+  padding: 30px 40px;
+  border-radius: 16px;
+  width: 350px;
+  text-align: left;
+  color: #e5e7eb;
+  position: relative;
+  box-shadow: 0 0 30px rgba(56,189,248,0.4);
+}
+#stats-content h2 {
+  color: #38bdf8;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#stats-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+#stats-content table td {
+  padding: 8px 5px;
+  border-bottom: 1px solid #1e293b;
+}
+
+#close-stats {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #38bdf8;
+  transition: 0.2s;
+}
+
+#close-stats:hover {
+  color: #ef4444;
+}

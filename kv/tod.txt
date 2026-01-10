@@ -1,0 +1,15 @@
+lvl1
+15 bodova ako odgovori samo 1 igrac na tacno pitanje 10 bodova ako oba igraca odgovore isto
+
+LVL 5
+-Ko prvi odgovori i pogresi -20 drugi koji ne odgovori ili pogresi a nije prvi kliknuo -10
+-Kljuc za svakog u toku 5lvl samo 1 (Mogucnost da preskocis tj ako ne znas ne skida ti se -10)
+
+
+//////////////DIZAJ DEO//////////////
+pause menu - moderniji tip 
+pocetni ekran levo sa strane igraceva slika ime pored nje.
+
+1.Registracije korisnika/prijava
+2.Dostignuca/statistika
+3.

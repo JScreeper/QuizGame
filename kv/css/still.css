@@ -1,0 +1,240 @@
+/* ==========================
+   Osnovni reset i body
+========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* ==========================
+   Top Bar
+========================== */
+#top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(58,123,213,0.9);
+  backdrop-filter: blur(10px);
+  color: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  position: relative;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+#top-bar:hover {
+  background: rgba(58,123,213,1);
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.avatar {
+  font-size: 32px;
+  border-radius: 50%;
+  padding: 6px;
+  background: rgba(255,255,255,0.3);
+}
+
+.player-info .name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.player-info .points {
+  font-size: 13px;
+  margin-top: 2px;
+  color: #ffdd57;
+}
+
+#timer {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff; /* normalna boja */
+  background: rgba(0,0,0,0.25);
+  padding: 6px 18px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+#timer.re {
+  color: red;
+  font-weight: 900;
+}
+
+#timer.danger {
+  color: #ff3b3b;
+  animation: pulse 1s infinite;
+}
+
+#timer.active {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+  100% { transform: scale(1); box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
+}
+
+/* ==========================
+   Naslov i nivo
+========================== */
+#title {
+  margin-top: 30px;
+  font-size: 60px;            /* veliki i upečatljiv */
+  font-weight: 900;           /* snažan font */
+  text-align: center;
+  background: linear-gradient(90deg, #4a90e2, #357ABD, #2a60a3); /* plavi gradient */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.2); /* suptilna senka za dubinu */
+  animation: titlePulse 3s ease-in-out infinite alternate;
+}
+
+#level {
+  margin-top: 8px;
+  font-size: 20px;
+  text-align: center;
+  color: #4a4a4a;
+  letter-spacing: 1px;
+}
+
+/* ==========================
+   Glavna kartica za pitanje
+========================== */
+#game {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
+  background: rgba(255,255,255,0.9);
+  padding: 35px 45px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#game:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ==========================
+   Pitanje
+========================== */
+#question {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* ==========================
+   Dugmad za odgovore
+========================== */
+#answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+#answers button {
+  padding: 18px 28px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #4a90e2, #357ABD);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  min-width: 160px;
+  transition: all 0.35s ease;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+#answers button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+#answers button:hover::after {
+  left: 100%;
+}
+
+#answers button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+#answers button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* ==========================
+   Tačan / Netacan odgovor
+========================== */
+button.correct {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  animation: answerFlash 0.5s ease forwards;
+}
+
+button.wrong {
+  background: linear-gradient(135deg, #dc3545, #e4606d);
+  color: white;
+  animation: answerFlash 0.5s ease forwards;
+}
+
+@keyframes answerFlash {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}

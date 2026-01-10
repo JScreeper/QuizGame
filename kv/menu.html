@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pobednik Meni</title>
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+  <!-- Igračev avatar u gornjem desnom uglu -->
+  <div id="player-avatar">
+    <div id="avatar-icon">👤</div>
+    <div id="avatar-menu">
+      <button id="statistika-btn">📊 Statistika</button>
+      <button id="nalog-btn">👤 Nalog</button>
+    </div>
+  </div>
+
+  <div id="menu-container">
+    <h1 class="game-title">Budi</h1>
+    <h1 class="game-title">POBEDNIK</h1>
+
+    <div class="menu-buttons">
+      <button id="btn-1p">👤 Igraj – 1 igrač</button>
+      <button id="btn-2p">👥 Igraj – 2 igrača</button>
+      <button id="btn-options">⚙ Opcije</button>
+      <button id="btn-exit">❌ Izlaz</button>
+    </div>
+
+  </div>
+  <!-- Modal Statistika -->
+  <div id="stats-modal">
+    <div id="stats-content">
+      <span id="close-stats">&times;</span>
+      <h2>Statistika</h2>
+      <table>
+        <tr>
+          <td>Broj pobeda:</td>
+          <td id="wins">0</td>
+        </tr>
+        <tr>
+          <td>Broj odigranih mečeva:</td>
+          <td id="matches">0</td>
+        </tr>
+        <tr>
+          <td>Najviše osvojenih poena:</td>
+          <td id="max-points">0</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <script src="js/menu.js"></script>
+</body>
+</html>

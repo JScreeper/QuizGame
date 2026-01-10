@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pobednik</title>
+  <link rel="stylesheet" href="css/still.css">
+  <link rel="stylesheet" href="css/pause.css">
+</head>
+<body>
+
+  <!-- GORNJI BAR -->
+  <div id="top-bar">
+
+    <!-- IGRAC 1 -->
+    <div class="player left">
+      <div class="avatar">👤</div>
+      <div class="player-info">
+        <div class="name">IGRAČ 1</div>
+        <div class="points" id="p1-score">0</div>
+      </div>
+    </div>
+
+    <!-- TIMER -->
+    <div id="timer">⏱ 10s</div>
+
+    <!-- IGRAC 2 -->
+    <div class="player right">
+      <div class="avatar">👤</div>
+      <div class="player-info">
+        <div class="name">IGRAČ 2</div>
+        <div class="points" id="p2-score">0</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NASLOV -->
+  <h1 id="title">POBEDNIK</h1>
+  <h2 id="level"></h2>
+
+  <!-- GLAVNA KARTICA -->
+  <div id="game">
+
+    <div id="question"></div>
+    <div id="answers"></div>
+
+  </div>
+
+  <!-- INFO (moze i da se ne koristi vise) -->
+  <div id="info" style="display:none;">
+    Poeni: <span id="score">0</span>
+  </div>
+  <!-- PAUZA OVERLAY -->
+  <div id="pause-overlay" style="display:none;">
+    <div id="pause-menu">
+      <h2>PAUZA</h2>
+      <button id="resumeBtn">▶ Nastavi igru</button>
+      <button id="quitBtn">⏹ Napusti igru</button>
+    </div>
+  </div>
+  
+
+  <script src="js/GM.js"></script>
+  <script src="js/pause.js"></script>
+</body>
+</html>
